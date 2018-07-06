@@ -1,0 +1,120 @@
+.ludus {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-family: "CAESAR";
+    font-weight: lighter;
+    font-size: 4em;
+    text-align: center;
+  }
+  .center {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    .card {
+      width: 500px;
+      margin: 0;
+      text-align: center;
+      .header {
+        font-family: "Roboto" !important;
+        font-weight: 300 !important;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        .subContainer {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          h1 {
+            font-family: 'Roboto' !important;
+            font-weight: 500 !important;
+            font-style: italic;
+            color: #00b5ad;
+          }
+        }
+        .animalsContainer {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 35px;
+          span {
+            margin-right: 15px;
+            font-family: 'Roboto';
+            font-weight: 300;
+            color: gray;
+          }
+          .checkbox.checked {
+            label::before {
+              background-color: #00b6ad !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .qContainer {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    .segment {
+      flex-grow: 1;
+      margin: 0 0 10px 20px;
+      display: flex;
+      align-items: center;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .card {
+        margin: 5px;
+        width: 120px !important;
+        max-width: 120px !important;
+        min-width: 120px !important;
+        .content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          img {
+            margin: 5px;
+          }
+          .inactive {
+            filter: grayscale(100%);
+          }
+        }
+        .overlay {
+          visibility: hidden;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          background-color: red;
+          opacity: .4;
+          border-radius: 4px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          top: 0;
+          span {
+            font-family: 'Roboto';
+            font-weight: 500;
+            color: white;
+            font-size: 5em;
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          .overlay {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}

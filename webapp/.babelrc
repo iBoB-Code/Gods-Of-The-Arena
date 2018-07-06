@@ -1,0 +1,34 @@
+{
+  "env": {
+    "production": {
+      "presets": [
+        ["env", {"loose": true, "modules": false}],
+        "react",
+
+        "stage-2"
+      ],
+      "plugins": [
+        "transform-react-inline-elements",
+
+        "transform-decorators-legacy",
+        "transform-flow-strip-types",
+        "syntax-dynamic-import"
+      ]
+    },
+    "development": {
+      "presets": [
+        ["env", {"loose": true, "modules": false}],
+        "react"
+      ],
+      "plugins": [
+        "react-hot-loader/babel",
+        "transform-class-properties",
+        "transform-object-rest-spread",
+
+        "transform-decorators-legacy",
+        "transform-flow-strip-types",
+        "syntax-dynamic-import"
+      ]
+    }
+  }
+}

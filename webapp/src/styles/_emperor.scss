@@ -1,0 +1,105 @@
+.emperor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-family: "CAESAR";
+    font-weight: lighter;
+    font-size: 4em;
+    text-align: center;
+    margin: 0;
+  }
+  h3 {
+    font-family: "Roboto";
+    font-weight: 100;
+    font-size: 1.6em;
+    text-align: center;
+    margin: 0 0 10px 0;
+  }
+  .center {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    .cardsContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .fighterSelector {
+        margin: 10px 70px;
+      }
+    }
+    .engage {
+      margin-top: -50px;
+    }
+  }
+  .animals {
+    text-align: center;
+    width: 400px;
+    .subContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .segment {
+        margin: 0 !important;
+        display: flex;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .statistic {
+          margin: 5px 0 0 0;
+          .label, .value {
+            line-height: 1em !important;
+            margin: 2px;
+          }
+          .label {
+            font-size: .8em !important;
+            width: 100px;
+          }
+          .value {
+            font-size: 1.1em !important;
+          }
+        }
+        .overlay {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          i {
+            margin: 0;
+            transition: .3s;
+            &:hover {
+              cursor: pointer;
+              transform: scale(1.3);
+            }
+          }
+        }
+      }
+    }
+  }
+  .qContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    span {
+      font-family: 'Roboto';
+      font-weight: 400;
+    }
+    .card {
+      margin: 5px;
+      opacity: .5;
+      width: auto !important;
+    }
+  }
+}

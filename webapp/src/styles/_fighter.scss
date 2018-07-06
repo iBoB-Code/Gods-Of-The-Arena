@@ -1,0 +1,63 @@
+.fighterSelector {
+  text-align: center;
+  .wait {
+    height: 160px;
+  }
+  .card {
+    .header {
+      font-family: "Roboto" !important;
+      font-weight: 300 !important;
+    }
+    width: 350px;
+    .subContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-around;
+      .segments {
+        width: 100px;
+        max-height: 160px;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        overflow-y: scroll;
+        .segment {
+          padding: 8px;
+          transition: .2s;
+          font-family: 'Roboto';
+          font-weight: 300;
+          color: #00b5ad;
+          &:hover, &.active {
+            cursor: pointer;
+            color: white;
+            background-color: #00b5ad;
+          }
+        }
+      }
+      .segment.stats {
+        width: 200px;
+        height: 160px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        .ui.dropdown {
+          margin-top: 10px;
+        }
+        .statistics {
+          margin: 0;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          .statistic {
+            margin: 0 10px 20px 10px;
+            .label, .value {
+              color: #00b5ad;
+            }
+          }
+        }
+      }
+    }
+  }
+}

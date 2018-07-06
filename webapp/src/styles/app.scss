@@ -1,0 +1,76 @@
+html, body, #root{
+  width: 100%;
+  height: 100%;
+  font-family: 'ProximaNova-Reg-webfont', 'Roboto-Regular', 'ProximaNovaReg', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+input:focus {
+  outline: 0 solid transparent;
+}
+
+input:-webkit-autofill {
+  background-color: white !important;
+}
+
+#root > div, .wait {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes beating {
+  0%   {color: #E8E8E8;}
+  10%  {color: #1CB5AC;}
+  100% {color: #E8E8E8;}
+}
+
+@font-face {
+	font-family: 'CAESAR';
+	src: url('../assets/fonts/CAESAR.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('../assets/fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: url('../assets/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: url('../assets/fonts/Roboto/Roboto-Light.ttf') format('truetype');
+	font-weight: 200;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: url('../assets/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: url('../assets/fonts/Roboto/Roboto-Black.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@import './home';
+@import './notFound';
+@import './ludus';
+@import './emperor';
+@import './carousel';
+@import './fighter';
