@@ -8,4 +8,4 @@ The project is divided in 2 different parts : the API and the webapp.
 
 Description
 ---------------
-This is a simple demo web app exploring different aspect of a react-redux-node-mongoose stack with real-time data management throught socket.io.
+This is a simple demo web app exploring different aspects of a react-redux-node-mongoose stack with real-time data management throught socket.io.
