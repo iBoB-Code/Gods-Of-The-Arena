@@ -12,6 +12,7 @@
   "author": "",
   "dependencies": {
     "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
     "body-parser": "~1.17.0",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
     "cookie-parser": "~1.4.3",
@@ -36,7 +37,7 @@
     "semantic-ui-css": "^2.3.1",
     "semantic-ui-react": "^0.79.0",
     "serve-favicon": "~2.4.1",
-    "socket.io": "^2.1.1"
+    "socket.io-client": "^2.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.3.17",

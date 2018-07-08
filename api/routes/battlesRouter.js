@@ -18,6 +18,7 @@ battlesRouter.route('/')
       .exec((err, typeB) => {
         let battle = new Battle({ ...req.body, fighterA: typeA._id, fighterB: typeB._id });
         battle.save();
+        req.io.emit('newBattle', { ...req.body, _id: battle._doc._id, fighterA: typeA, fighterB: typeB });
         res.status(201).send(battle);
       });
     });
@@ -48,6 +49,7 @@ battlesRouter.route('/:battleId')
         res.status(500).send(err)
       }
       else{
+        req.io.emit('delBattle', { id: req.battle._id });
         res.status(204).send('removed')
       }
     })

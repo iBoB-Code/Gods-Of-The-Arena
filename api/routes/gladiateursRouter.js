@@ -34,15 +34,10 @@ gladiateursRouter.route('/:gladiateurId')
     res.json(req.gladiateur)
   })
   .put((req,res) => {
-    Type.findOne({ name: req.body.type })
-    .exec((err, type) => {
-      req.gladiateur.type = type._id;
-      req.gladiateur.name = req.body.name;
-      req.gladiateur.custom = req.body.custom;
-      req.gladiateur.stats = req.body.stats;
-      req.gladiateur.save();
-      res.status(201).send(req.gladiateur)
-    });
+    req.gladiateur.custom = req.body.custom ? req.body.custom : req.gladiateur.custom;
+    req.gladiateur.stats = req.body.stats ? req.body.stats : req.gladiateur.stats;
+    req.gladiateur.save();
+    res.status(201).send(req.gladiateur)
   })
   .delete((req,res)=>{
     req.gladiateur.remove(err => {

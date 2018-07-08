@@ -3,6 +3,8 @@ const defaults = {
   types: [],
   gladiators: [],
   fetching: false,
+  connected: false,
+  animals: {},
   token: ''
 };
 
@@ -28,9 +30,16 @@ export default function reducer(state = defaults, action) {
     };
   }
   case 'INIT_GLADIATORS': {
+    const animals = {};
+    for (let i = 0; i < action.payload.length; i += 1) {
+      if (action.payload[ i ].type.name === 'animal') {
+        animals[ action.payload[ i ].name ] = 0;
+      }
+    }
     return {
       ...state,
-      gladiators: action.payload
+      gladiators: action.payload,
+      animals
     };
   }
   case 'NEW_BATTLE_DETECTED': {
@@ -42,15 +51,30 @@ export default function reducer(state = defaults, action) {
     };
   }
   case 'DEL_BATTLE_DETECTED': {
-    let nw = state.battles.slice(0);
+    const nw = state.battles.slice(0);
     for (let i = 0; i < nw.length; i += 1) {
-      if (action.payload.id === nw[ i ].id) {
-        nw = nw.slice(i, i + 1);
+      if (action.payload.id === nw[ i ]._id) {
+        nw.splice(i, 1);
       }
     }
     return {
       ...state,
       battles: nw
+    };
+  }
+  case 'SOCKET_TICK': {
+    return {
+      ...state,
+      connected: action.payload.state.connected
+    };
+  }
+  case 'UPDATE_ANIMAL_COUNT': {
+    const nw = { ...state.animals };
+    nw[ action.payload.animal ] = state.animals[ action.payload.animal ] + action.payload.i;
+    nw[ action.payload.animal ] = nw[ action.payload.animal ] < 0 ? 0 : nw[ action.payload.animal ];
+    return {
+      ...state,
+      animals: nw
     };
   }
   default: {

@@ -4,21 +4,10 @@ import { connect } from 'react-redux';
 import { Card, Image, Segment, Header } from 'semantic-ui-react';
 import imgLudus from 'ASSETS/images/ludus.png';
 import imgEmperor from 'ASSETS/images/emperor.png';
-// import socketio from 'socket.io';
-
-// const io = socketio();
 
 @connect(() => ({
 }))
 export default class Home extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   io.on('join', (data) => {
-  //     console.log(data);
-  //     io.emit('messages', 'Hello from server');
-  //   });
-  // }
-
   render() {
     return (
       <div className="home">
@@ -49,7 +38,7 @@ export default class Home extends Component {
     );
   }
 }
-Home.displayName = 'Home';
-Home.propTypes = {
+Home.WrappedComponent.displayName = 'Home';
+Home.WrappedComponent.propTypes = {
   history: PropTypes.object.isRequired
 };

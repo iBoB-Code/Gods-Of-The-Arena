@@ -59,6 +59,8 @@ module.exports = {
     'no-unused-expressions': ["error", { "allowTernary": true }],
     'import/extensions': ['off', 'never'],
     "react/forbid-prop-types": [0],
-    "react/no-array-index-key": 0
+    "react/no-array-index-key": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "no-nested-ternary": 0
   }
 };

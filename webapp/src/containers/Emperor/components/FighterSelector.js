@@ -4,10 +4,10 @@ import { Card, Segment, Dropdown, Statistic, Header } from 'semantic-ui-react';
 import { strCapFL } from 'UTILS/ManageStrings';
 import { Eye } from 'react-preloading-component';
 
-const FighterSelector = ({ type, gladiators, selected, changeSelection }) => (
+const FighterSelector = ({ type, gladiators, selected, changeSelection, changeOpt, selectedOpt }) => (
   <div className="fighterSelector" >
     <Card raised>
-      <Card.Content header={`${strCapFL(type)}s Availables`} />
+      <Card.Content header={`${RegExp('man', 'g').test(type) ? strCapFL(type).replace('man', 'men') : `${strCapFL(type)}s`} Availables`} />
       <Card.Content>
         {
           gladiators.length > 0 ?
@@ -40,7 +40,7 @@ const FighterSelector = ({ type, gladiators, selected, changeSelection }) => (
                 </Statistic.Group>
                 {
                   gladiators[ selected ].custom.length > 0 ?
-                    <Dropdown placeholder="Mandatory Option" fluid selection options={gladiators[ selected ].custom.map(g => ({ text: g, value: g }))} />
+                    <Dropdown value={selectedOpt} onChange={(e, { value }) => changeOpt(value)} placeholder="Mandatory Option" fluid selection options={gladiators[ selected ].custom.map(g => ({ text: g, value: g }))} />
                   : ''
                 }
               </Segment>
@@ -57,7 +57,9 @@ FighterSelector.propTypes = {
   type: PropTypes.string.isRequired,
   gladiators: PropTypes.array.isRequired,
   selected: PropTypes.number.isRequired,
-  changeSelection: PropTypes.func.isRequired
+  changeSelection: PropTypes.func.isRequired,
+  changeOpt: PropTypes.func.isRequired,
+  selectedOpt: PropTypes.string.isRequired
 };
 
 export default FighterSelector;

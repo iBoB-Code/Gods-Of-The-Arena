@@ -1,3 +1,5 @@
+@import './animista';
+
 .emperor {
   height: 100%;
   display: flex;
@@ -20,6 +22,7 @@
   .center {
     flex-grow: 1;
     display: flex;
+    min-height: 570px;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -32,12 +35,54 @@
       }
     }
     .engage {
+      position: relative;
       margin-top: -50px;
+      div {
+        top: 0px;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        padding-top: 20px;
+        span {
+          font-family: 'Roboto';
+          font-weight: 500;
+          font-style: italic;
+          font-size: 1.2em;
+        }
+      }
+      &.inactive {
+        cursor: not-allowed;
+        filter: grayscale(100%);
+        &:hover {
+          animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        }
+      }
+      &.active {
+        cursor: pointer;
+        transition: .1s;
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
     }
   }
   .animals {
     text-align: center;
     width: 400px;
+    height: 177px;
+    min-height: 177px;
+    .blocker {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &.inactive {
+      opacity: .5;
+      cursor: not-allowed;
+    }
     .subContainer {
       display: flex;
       align-items: center;
@@ -86,20 +131,129 @@
     }
   }
   .qContainer {
+    min-height: 165px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    text-align: center;
     span {
       font-family: 'Roboto';
       font-weight: 400;
     }
     .card {
+      width: 100px !important;
+      height: 100px;
       margin: 5px;
       opacity: .5;
-      width: auto !important;
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .inactive {
+          filter: grayscale(100%);
+        }
+      }
+    }
+  }
+}
+
+.ui.modal {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  .modalContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .countdown {
+      h1 {
+        font-size: 8em;
+        &.in {
+          -webkit-animation: scale-in-center 0.5s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+          animation: scale-in-center 0.5s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+        }
+        &.out {
+          -webkit-animation: scale-out-center 0.5s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+	        animation: scale-out-center 0.5s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+        }
+      }
+    }
+    .intro {
+      width: 100%;
+      .fighters {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div {
+          width: 400px;
+          text-align: center;
+        }
+        h2 {
+          font-size: 7em;
+          margin: 0 60px;
+          &.in {
+            animation: scale-in-center 0.5s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+          }
+          &.out {
+            animation: scale-out-center 0.5s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+          }
+        }
+        h1, h3 {
+          margin: 0;
+          font-size: 5em;
+        }
+        h1 {
+          &.in {
+            animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          }
+          &.out {
+            animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+          }
+        }
+        h3 {
+          &.in {
+            animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          }
+          &.out {
+            animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+          }
+        }
+      }
+    }
+    .fight {
+      width: 100%;
+      height: 100%;
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .winner {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-family: 'Roboto';
+        font-size: 7em;
+        animation: bounce-in-top 1.1s both;
+      }
+      img {
+        animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1000ms both;
+      }
+      h2 {
+        font-family: 'Roboto';
+        font-size: 4em;
+        font-weight: 300;
+        animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1500ms both;
+      }
     }
   }
 }

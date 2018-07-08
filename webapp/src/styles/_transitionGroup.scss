@@ -1,0 +1,17 @@
+@import './animista';
+
+.transitionGroup-ludusQ-enter {
+  animation: roll-in-blurred-right 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+.transitionGroup-ludusQ-enter.transitionGroup-ludusQ-enter-active {
+  animation: roll-in-blurred-right 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+.transitionGroup-ludusQ-leave {
+  animation: slide-out-bottom .6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.transitionGroup-ludusQ-leave.transitionGroup-ludusQ-leave-active {
+  animation: slide-out-bottom .6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}

@@ -6,6 +6,7 @@ import Route from 'react-router-dom/Route';
 import 'semantic-ui-css/semantic.min.css';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 
+import ConditionalRoute from 'COMPONENTS/ConditionalRoute';
 import Home from './Home';
 import Ludus from './Ludus';
 import Emperor from './Emperor';
@@ -25,9 +26,9 @@ const App = props => (
     <BrowserRouter forceRefresh={!supportsHistory} keyLength={12}>
       <div>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/Ludus" component={Ludus} />
-          <Route exact path="/Emperor" component={Emperor} />
+          <ConditionalRoute exact path="/" component={Home} />
+          <ConditionalRoute exact path="/Ludus" component={Ludus} />
+          <ConditionalRoute exact path="/Emperor" component={Emperor} />
           <Route component={NotFound} />
         </Switch>
       </div>

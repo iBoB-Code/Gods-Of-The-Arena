@@ -5,6 +5,8 @@ import { Card, Image, Segment, Button, Checkbox, Icon } from 'semantic-ui-react'
 import { getTypeImg } from 'UTILS/Enums';
 import { toggleAnimal, changeType } from 'REDUX/actions/ludusActions';
 import { postCall, getCall, deleteCall } from 'REDUX/actions/asyncActions';
+import { Eye } from 'react-preloading-component';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import imgLudus from 'ASSETS/images/ludus.png';
 import sword from 'ASSETS/images/sword.png';
 import horse from 'ASSETS/images/horse.png';
@@ -65,8 +67,8 @@ export default class Ludus extends Component {
   }
 
   render() {
-    const battles = this.props.battles.map((battle, i) => (
-      <Card key={`battle-${i}`} name={battle._id} onClick={this.deleteBattle}>
+    const battles = this.props.battles.map(battle => (
+      <Card key={`battle-${battle._id}`} name={battle._id} onClick={this.deleteBattle}>
         <Card.Content>
           <div className="subContainer">
             <Image size="mini" src={media[ getTypeImg(battle.fighterA.name) ]} />
@@ -86,9 +88,9 @@ export default class Ludus extends Component {
           <div className="cardsContainer">
             <Card raised >
               <Card.Content header="Built a battle" />
-              <Card.Content>
-                {
-                  this.props.types.length > 0 ?
+              {
+                this.props.types.length > 0 ?
+                  <Card.Content className="main">
                     <div className="subContainer">
                       <CarouselSelector
                         types={this.props.types}
@@ -104,20 +106,20 @@ export default class Ludus extends Component {
                         fighter="B"
                       />
                     </div>
-                    : ''
-                }
-                <div className="animalsContainer">
-                  <span>Spice it up with animals?</span>
-                  <Checkbox slider color="teal" checked={this.props.animalToggle} onChange={() => this.props.dispatch(toggleAnimal())} />
-                </div>
-                <Button
-                  content="Program this battle"
-                  color="teal"
-                  onClick={this.programBattle}
-                  disabled={this.props.types[ Math.abs(this.props.selectedTypeA) % this.props.types.length ] ===
-                            this.props.types[ Math.abs(this.props.selectedTypeB) % this.props.types.length ]}
-                />
-              </Card.Content>
+                    <div className="animalsContainer">
+                      <span>Spice it up with animals?</span>
+                      <Checkbox slider color="teal" checked={this.props.animalToggle} onChange={() => this.props.dispatch(toggleAnimal())} />
+                    </div>
+                    <Button
+                      content="Program this battle"
+                      color="teal"
+                      onClick={this.programBattle}
+                      disabled={this.props.types[ Math.abs(this.props.selectedTypeA) % this.props.types.length ] ===
+                                this.props.types[ Math.abs(this.props.selectedTypeB) % this.props.types.length ]}
+                    />
+                  </Card.Content>
+                : <Card.Content className="main"><div className="wait"><Eye size={60} color="#00b5ad" /></div></Card.Content>
+              }
             </Card>
           </div>
         </div>
@@ -125,7 +127,16 @@ export default class Ludus extends Component {
           <Image size="small" src={imgLudus} />
           <Segment raised>
             <Icon size="big" name="arrow circle left" color="teal" />
-            {battles}
+            <ReactCSSTransitionGroup
+              transitionName="transitionGroup-ludusQ"
+              transitionEnterTimeout={650}
+              transitionLeaveTimeout={600}
+            >
+              { battles }
+            </ReactCSSTransitionGroup>
+            {
+              battles.length > 0 ? '' : <span className="empty">There is no battle in the queue yet, create one !</span>
+            }
           </Segment>
         </div>
       </div>

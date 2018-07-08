@@ -16,12 +16,18 @@
     flex-direction: column;
     justify-content: center;
     .card {
+      min-height: 440px;
       width: 500px;
       margin: 0;
       text-align: center;
       .header {
         font-family: "Roboto" !important;
         font-weight: 300 !important;
+      }
+      .main {
+        height: 390px;
+        .wait {
+        }
       }
       .content {
         display: flex;
@@ -64,6 +70,7 @@
     display: flex;
     align-items: center;
     .segment {
+      height: 158px;
       flex-grow: 1;
       margin: 0 0 10px 20px;
       display: flex;
@@ -72,46 +79,58 @@
       &::-webkit-scrollbar {
         display: none;
       }
-      .card {
-        margin: 5px;
-        width: 120px !important;
-        max-width: 120px !important;
-        min-width: 120px !important;
-        .content {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-          img {
-            margin: 5px;
+      .empty {
+        margin-left: 20px;
+        font-family: 'Roboto';
+        font-size: 1.5em;
+        color: #a2a2a2;
+        font-weight: 100;
+        font-style: italic;
+      }
+      span {
+        display: flex;
+        flex-direction: row;
+        .card {
+          margin: 5px;
+          width: 120px !important;
+          max-width: 120px !important;
+          min-width: 120px !important;
+          .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            img {
+              margin: 5px;
+            }
+            .inactive {
+              filter: grayscale(100%);
+            }
           }
-          .inactive {
-            filter: grayscale(100%);
-          }
-        }
-        .overlay {
-          visibility: hidden;
-          position: absolute;
-          height: 100%;
-          width: 100%;
-          background-color: red;
-          opacity: .4;
-          border-radius: 4px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          top: 0;
-          span {
-            font-family: 'Roboto';
-            font-weight: 500;
-            color: white;
-            font-size: 5em;
-          }
-        }
-        &:hover {
-          cursor: pointer;
           .overlay {
-            visibility: visible;
+            visibility: hidden;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: red;
+            opacity: .4;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            span {
+              font-family: 'Roboto';
+              font-weight: 500;
+              color: white;
+              font-size: 5em;
+            }
+          }
+          &:hover {
+            cursor: pointer;
+            .overlay {
+              visibility: visible;
+            }
           }
         }
       }
